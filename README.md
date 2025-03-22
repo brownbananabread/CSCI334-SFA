@@ -1,6 +1,6 @@
 # CSCI334 - Service Finder App
 
-This project is a **Service Finder App** built using **React**, **TypeScript**, and **Vite**. The project was initialized with `npm create vite@latest` and styled using **Tailwind CSS**.
+A **Service Finder App** built with **React**, **TypeScript**, and **Vite**, styled using **Tailwind CSS**. The project was initialized with `npm create vite@latest`.
 
 ## Features
 
@@ -12,30 +12,42 @@ This project is a **Service Finder App** built using **React**, **TypeScript**, 
 
 ### Prerequisites
 
-Ensure you have the following installed:
+Ensure the following are installed:
 
 - [Node.js](https://nodejs.org/) (v16 or later)
-- npm (comes with Node.js)
+- npm (bundled with Node.js)
 
 ### Installation
 
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/brownbananabread/CSIT314-EMS.git
-    cd CSIT314-EMS
-    ```
+#### Client Setup
+```bash
+cd client
+npm install
+```
 
-2. Install dependencies:
-    ```bash
-    npm install
-    ```
+#### Server Setup
+```bash
+cd server
+python3 -m venv venv
+source venv/bin/activate
+pip install flask flask_restful
+```
 
-3. Start the development server:
+### Usage
+
+1. **Start Frontend Server**
     ```bash
+    cd client
     npm run dev
     ```
+    Hosted on: `http://localhost:5173`
 
-4. Open your browser and navigate to `http://localhost:5173`.
+2. **Start Backend Server**
+    ```bash
+    cd server
+    npm run dev
+    ```
+    Hosted on: `http://localhost:5000`
 
 ## Scripts
 
@@ -49,10 +61,12 @@ Ensure you have the following installed:
 - **TypeScript**: For type-safe JavaScript development.
 - **Vite**: For fast builds and hot module replacement.
 - **Tailwind CSS**: For styling.
+- **Python**: For backend development.
+- **Flask**: For RESTful API routes.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+Licensed under the [MIT License](LICENSE).
 
 ## Acknowledgments
 
