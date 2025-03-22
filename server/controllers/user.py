@@ -1,4 +1,4 @@
-from flask import jsonify
+from flask import jsonify, request
 
 def get_all_users():
     return jsonify({'message': 'GET all users request complete'}), 200

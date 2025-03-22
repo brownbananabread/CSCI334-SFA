@@ -1,11 +1,11 @@
 from flask import Flask
-from routes.user import user
+from routes.user import user_blueprint
 
 def create_app():
     app = Flask(__name__)
 
     # Register Blueprints
-    app.register_blueprint(user)
+    app.register_blueprint(user_blueprint)
 
     @app.route('/')
     def index():
@@ -19,4 +19,4 @@ def create_app():
 
 if __name__ == '__main__':
     app = create_app()
-    app.run(debug=True)
+    app.run(debug=False, host='localhost', port=5174)
