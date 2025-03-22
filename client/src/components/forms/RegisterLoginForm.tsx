@@ -42,10 +42,34 @@ const RegisterLoginForm = () => {
     setIsLoading(true);
 
     if (step === "landing") {
+
+
       setTimeout(() => {
-        setIsLoading(false);
-        setStep(email === "brownbro1634@gmail.com" ? "login" : "register");
+        fetch("http://localhost:5174/api/validate", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            setIsLoading(false);
+            if (data.isValid) {
+              setStep("login");
+              showAlert("Email found!", "Showing login screen.", "success");
+            } else {
+              setStep("register");
+              showAlert("Email not found!", "Showing register screen.", "info");
+            }
+          })
+          .catch((error) => {
+            setIsLoading(false);
+            console.error("Error validating email:", error);
+            showAlert("Error!", "An error occurred while validating the email. Please try again later.", "error", true);
+          });
       }, 1000);
+
     } else if (step === "login") {
       if (password !== "JBrown1634") {
         showAlert("Incorrect password!", "The password you entered is incorrect. Please try again.", "error", true, "#", "Learn More");
