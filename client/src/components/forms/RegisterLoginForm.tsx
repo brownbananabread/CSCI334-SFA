@@ -73,6 +73,9 @@ const RegisterLoginForm = () => {
   
       if (response.isValid) {
         showAlert("Welcome back!", `${email} is logged in.`, "success", true, "#", "Learn More");
+        
+        console.log(document.cookie.split('; ').find(row => row.startsWith('accessToken='))?.split('=')[1]);
+        
         setTimeout(() => {
           window.location.href = "/dashboard";
         }, 2000);

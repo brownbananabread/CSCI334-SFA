@@ -1,9 +1,5 @@
 from flask import Blueprint, request
-from controllers.auth import (
-    validate,
-    login,
-    register
-)
+import controllers.auth as auth
 
 auth_blueprint = Blueprint('auth_blueprint', __name__, url_prefix='/api')
 
@@ -12,7 +8,7 @@ def validate_route():
     body = request.get_json()
     email = body.get('email')
     if email: 
-        return validate(email)
+        return auth.validate(email)
     else:
         return {'message': 'Email is required'}, 400
 
@@ -21,7 +17,7 @@ def login_route():
     body = request.get_json()
     password = body.get('password')
     if password: 
-        return login(password)
+        return auth.login(password)
     else:
         return {'message': 'Password is required'}, 400
     
@@ -35,6 +31,6 @@ def register_route():
     isBusinessAccount = body.get('isBusinessAccount')
     
     if firstName and lastName and password and isTermsChecked is not None and isBusinessAccount is not None: 
-        return register(firstName, lastName, password, isTermsChecked, isBusinessAccount)
+        return auth.register(firstName, lastName, password, isTermsChecked, isBusinessAccount)
     else:
         return {'message': 'All register params are required'}, 400

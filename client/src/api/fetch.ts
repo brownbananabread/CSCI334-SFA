@@ -20,6 +20,7 @@ export const fetchRequest = async ({
                 'Content-Type': 'application/json',
                 ...headers,
             },
+            credentials: 'include',
         };
 
         if (method.toUpperCase() === 'GET') {
@@ -32,8 +33,8 @@ export const fetchRequest = async ({
         }
 
         const response = await fetch(url, options);
-
         const responseData = await response.json();
+        
         return responseData;
     } catch (error) {
         console.error(`Error making ${method} request:`, error);
