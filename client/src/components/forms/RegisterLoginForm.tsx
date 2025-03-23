@@ -6,8 +6,9 @@ import Input from "../ui/InputField";
 import Checkbox from "../ui/Checkbox";
 import Switch from "../ui/Switch";
 import { useAlert } from "../../context/AlertContext";
-import { validateEmail } from "../../utilities/formating";
+import { validateEmailRegex } from "../../utilities/formating";
 import MoreInfo from "../common/MoreInfo";
+import { fetchRequest } from "../../api/fetch";
 
 const RegisterLoginForm = () => {
   const { showAlert } = useAlert();
@@ -23,7 +24,7 @@ const RegisterLoginForm = () => {
 
   useEffect(() => {
     if (step === "landing") {
-      setIsFormValid(validateEmail(email));
+      setIsFormValid(validateEmailRegex(email));
     } else if (step === "login") {
       setIsFormValid(password.length >= 8);
     } else if (step === "register") {
@@ -36,64 +37,95 @@ const RegisterLoginForm = () => {
     }
   }, [email, password, firstName, lastName, isTermsChecked, step]);
 
+  const validateEmail = async (email: string) => {
+    try {
+      const response = await fetchRequest({
+        method: 'POST',
+        url: 'http://localhost:5174/api/validate',
+        data: { email },
+      });
+  
+      setIsLoading(false);
+  
+      if (response.isValid) {
+        setStep("login");
+        showAlert("Email found!", "Showing login screen.", "success");
+      } else {
+        setStep("register");
+        showAlert("Email not found!", "Showing register screen.", "info");
+      }
+    } catch (error) {
+      setIsLoading(false);
+      console.error("Error validating email:", error);
+      showAlert("Error!", "An error occurred while validating the email. Please try again later.", "error", true);
+    }
+  };
+
+  const login = async (password: string) => {
+    try {
+      const response = await fetchRequest({
+        method: 'POST',
+        url: 'http://localhost:5174/api/login',
+        data: { password },
+      });
+  
+      setIsLoading(false);
+  
+      if (response.isValid) {
+        showAlert("Welcome back!", `${email} is logged in.`, "success", true, "#", "Learn More");
+        setTimeout(() => {
+          window.location.href = "/dashboard";
+        }, 2000);
+      } else {
+        showAlert("Wrong Password!", "Enter your password...", "error");
+      }
+    } catch (error) {
+      setIsLoading(false);
+      console.error("Error validating email:", error);
+      showAlert("Error!", "An error occurred while validating the email. Please try again later.", "error", true);
+    }
+  };
+
+  const register = async (firstName: string, lastName: string, password: string, isTermsChecked: boolean, isBusinessAccount: boolean) => {
+    try {
+      const response = await fetchRequest({
+        method: 'POST',
+        url: 'http://localhost:5174/api/register',
+        data: { 
+          firstName,
+          lastName,
+          password,
+          isTermsChecked,
+          isBusinessAccount
+         },
+      });
+  
+      setIsLoading(false);
+  
+      if (response.isValid) {
+        showAlert("Account Created!", `${email} has been successfully created.`, "info", true, "#", "Learn More");
+        setTimeout(() => {
+          window.location.href = "/dashboard";
+        }, 2000);
+      } else {
+        showAlert("Account Not Created", "Error...", "error");
+      }
+    } catch (error) {
+      setIsLoading(false);
+      console.error("Error validating email:", error);
+      showAlert("Error!", "An error occurred while validating the email. Please try again later.", "error", true);
+    }
+  };
+
   const handleFormSubmit = (e: FormEvent) => {
     if (!isFormValid) return;
     e.preventDefault();
     setIsLoading(true);
 
-    if (step === "landing") {
-
-
-      setTimeout(() => {
-        fetch("http://localhost:5174/api/validate", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            setIsLoading(false);
-            if (data.isValid) {
-              setStep("login");
-              showAlert("Email found!", "Showing login screen.", "success");
-            } else {
-              setStep("register");
-              showAlert("Email not found!", "Showing register screen.", "info");
-            }
-          })
-          .catch((error) => {
-            setIsLoading(false);
-            console.error("Error validating email:", error);
-            showAlert("Error!", "An error occurred while validating the email. Please try again later.", "error", true);
-          });
-      }, 1000);
-
-    } else if (step === "login") {
-      if (password !== "JBrown1634") {
-        showAlert("Incorrect password!", "The password you entered is incorrect. Please try again.", "error", true, "#", "Learn More");
-        setIsLoading(false);
-        return;
-      }
-
-      setTimeout(() => {
-        setIsLoading(false);
-        showAlert("Welcome back!", `${email} has been successfully logged in.`, "info", true, "#", "Learn More");
-      }, 1000);
-    } else {
-      setTimeout(() => {
-        setIsLoading(false);
-        showAlert("Account created!", `${email} has been successfully registered.`, "info", true, "#", "Learn More");
-        console.log("Email:", email);
-        console.log("Password:", password);
-        console.log("First Name:", firstName);
-        console.log("Last Name:", lastName);
-        console.log("Terms Accepted:", isTermsChecked);
-        console.log("Account Type:", isBusinessAccount ? "Business" : "Customer");
-      }, 1000);
-    }
-  }
+    if (step === "landing") { validateEmail(email) } 
+    else if (step === "login") { login(password) } 
+    else { register(firstName, lastName, password, isTermsChecked, isBusinessAccount) } 
+  };
 
   return (
     <div className="flex flex-col flex-1">
@@ -125,8 +157,8 @@ const RegisterLoginForm = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 />
-                <p className={`mt-1.5 text-xs ${!validateEmail(email) && email ? "text-error-400" : validateEmail(email) ? "text-success-400" : ""}`}>
-                {!validateEmail(email) && email ? "Invalid email format." : validateEmail(email) ? "Email looks good!" : ""}
+                <p className={`mt-1.5 text-xs ${!validateEmailRegex(email) && email ? "text-error-400" : validateEmailRegex(email) ? "text-success-400" : ""}`}>
+                {!validateEmailRegex(email) && email ? "Invalid email format." : validateEmailRegex(email) ? "Email looks good!" : ""}
                 </p>
               </div>
               <Button className="w-full flex items-center justify-center gap-2" size="sm" disabled={!isFormValid || isLoading}>

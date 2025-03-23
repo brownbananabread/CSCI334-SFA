@@ -24,7 +24,7 @@ const dashboardMenuItems = [
   { href: "/support", title: "Support", icon: Headset },
   { href: "/documentation", title: "Documentation", icon: File },
   { isDivider: true },
-  { href: "/logout", title: "Logout", icon: LogOut },
+  { href: "/authentication", title: "Logout", icon: LogOut },
 ];
 
 export default function DashboardDropdown() {
