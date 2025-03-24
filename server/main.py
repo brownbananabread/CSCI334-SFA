@@ -2,14 +2,16 @@ from flask import Flask, request  # Ensure Flask is installed
 from flask_cors import CORS  # Ensure flask-cors is installed
 from routes.user import user_blueprint
 from routes.auth import auth_blueprint
+from routes.profile import profile_blueprint
 
 def create_app():
     app = Flask(__name__)
-    CORS(app, supports_credentials=True, origins=["http://localhost:5173"])
+    CORS(app, supports_credentials=True, origins=["http://localhost:5173", "http://localhost:4173"])
 
     # Register Blueprints
     app.register_blueprint(user_blueprint)
     app.register_blueprint(auth_blueprint)
+    app.register_blueprint(profile_blueprint)
 
     @app.before_request
     def log_request_info():  # Flask calls this function before each request

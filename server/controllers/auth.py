@@ -23,3 +23,7 @@ def register(firstName: str, lastName: str, password: str, isTermsChecked: bool,
         return response
     else:
         return jsonify({'isValid': False}), 404
+
+# def logout():
+
+# def refresh_token():

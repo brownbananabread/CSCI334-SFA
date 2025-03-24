@@ -1,0 +1,77 @@
+<diagram program="umletino" version="15.1"><zoom_level>7</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>127</x><y>96</y><w>168</w><h>196</h></coordinates><panel_attributes>&lt;&lt;Class&gt;&gt;
+USER
+--
+-userID: int
+- name: str
+- email: str
+- phone: str
+- address: str
+- createdAt: datetime
+- rating: str
+- paymentMethod: str
+
+--
++ updateProfile()
++ deleteAccount()
++ login()
++ logout()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>127</x><y>285</y><w>91</w><h>77</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>110;10;10;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>64</x><y>348</y><w>140</w><h>91</h></coordinates><panel_attributes>&lt;&lt;Class&gt;&gt;
+CUSTOMER
+--
+-role: customer
+--
++ createBooking()
++ updateBookingStatus()
++ makeReview()
++ sendMessage()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>218</x><y>348</y><w>140</w><h>91</h></coordinates><panel_attributes>&lt;&lt;Class&gt;&gt;
+SOLE-TRADER
+--
+-role: sole-trader
+--
++ acceptBooking()
++ makeReview()
++ sendMessage()</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>211</x><y>285</y><w>91</w><h>77</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;110;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>43</x><y>509</y><w>168</w><h>126</h></coordinates><panel_attributes>&lt;&lt;Class&gt;&gt;
+TICKET
+--
+- ticketID: int
+- customerID: int
+- soleTraderID: int
+- title: str
+- description: str
+- images: base64 str
+- date: datetime
+- serviceType: str</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>414</x><y>229</y><w>168</w><h>98</h></coordinates><panel_attributes>&lt;&lt;Class&gt;&gt;
+MESSAGES
+--
+- messageID: int
+- senderID: int
+- recieverID: int
+- payload: str
+- timestamp: datetime
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>414</x><y>75</y><w>168</w><h>98</h></coordinates><panel_attributes>&lt;&lt;Class&gt;&gt;
+RATING
+--
+- ratingID: int
+- senderID: int
+- recieverID: int
+- rating: str
+- timestamp: datetime
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>120</x><y>432</y><w>42</w><h>91</h></coordinates><panel_attributes>lt=&lt;-
+m1=*
+m2=1
+Makes</panel_attributes><additional_attributes>10;110;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>288</x><y>194</y><w>140</w><h>98</h></coordinates><panel_attributes>lt=&lt;-
+m1=*
+m2=1
+Send/Recieve</panel_attributes><additional_attributes>180;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>288</x><y>117</y><w>140</w><h>98</h></coordinates><panel_attributes>lt=&lt;-
+m1=*
+m2=1
+Has/Creates</panel_attributes><additional_attributes>180;10;10;120</additional_attributes></element><element><id>UMLNote</id><coordinates><x>456</x><y>446</y><w>280</w><h>98</h></coordinates><panel_attributes>Note..
+bg=blue
+
+Using a marketplace approach, a customer will create a listing
+(ticket) with details of the job they need completed. This will be 
+sent to sole-traders that offer that service and they can message
+the customer in the app. Once the customer and sole-trader
+accepts the listing (by clicking a button), it will be marked
+from 'pending' to 'approved'.</panel_attributes><additional_attributes></additional_attributes></element></diagram>
