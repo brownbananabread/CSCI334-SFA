@@ -6,7 +6,7 @@ interface Profile {
   name: string;
   email: string;
   role: string;
-  isPremium: boolean;
+  sole_trader: boolean;
 }
 
 interface ProfileContextType {

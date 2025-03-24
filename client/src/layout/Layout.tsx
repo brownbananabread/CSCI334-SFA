@@ -3,7 +3,7 @@ import Header from "../components/nav/Header";
 
 const AppLayout: React.FC = () => (
   <div style={{ overflow: "hidden", height: "100vh" }}>
-    <Header isDashboard={false} />
+    <Header/>
     <Outlet />
   </div>
 );

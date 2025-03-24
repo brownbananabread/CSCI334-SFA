@@ -55,7 +55,7 @@ export default function DashboardDropdown() {
               {profile?.email ? profile.email : 'Loading...'} 
               </span>
             </div>
-            <Membership premiumMembership={profile?.isPremium === true} />
+            <Membership premiumMembership={profile?.sole_trader === true} />
             </div>
 
           {dashboardMenuItems.map((item, index) =>
