@@ -18,14 +18,12 @@ export default function App() {
           {/* Redirect root path */}
           <Route path="/" element={<Navigate to="/authentication" />} />
 
-          {/* Dashboard Layout with ProfileProvider */}
           <Route element={ <DashboardLayout /> }>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/profile" element={<Profile />} />
             <Route path="/dashboard/settings" element={<Settings />} />
           </Route>
 
-          {/* Landing / Auth Layout */}
           <Route element={<Layout />}>
             <Route path="/authentication" element={<Authentication />} />
             <Route path="*" element={<NotFound />} />
