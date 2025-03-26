@@ -13,7 +13,7 @@ import {
   Settings,
   LogOut,
 } from "lucide-react";
-import Membership from "../ui/Membership";
+import { CustomerMembership } from "../ui/Membership";
 
 // Full dashboard menu
 const dashboardMenuItems = [
@@ -55,7 +55,7 @@ export default function DashboardDropdown() {
               {profile?.email ? profile.email : 'Loading...'} 
               </span>
             </div>
-            <Membership premiumMembership={profile?.sole_trader === true} />
+            <CustomerMembership />
             </div>
 
           {dashboardMenuItems.map((item, index) =>

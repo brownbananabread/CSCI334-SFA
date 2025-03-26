@@ -16,7 +16,7 @@ const DashboardHeader: React.FC = () => {
             <span className="flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded">
               <Fingerprint />
             </span>
-            <span className="ml-2 text-xl font-medium text-gray-900 dark:text-white">Hello</span>
+            <span className="ml-2 text-xl font-medium text-gray-900 dark:text-white">Service Finder App</span>
           </Link>
         </div>
       </div>

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router";
 import { Fingerprint } from "lucide-react";
 import Input from "../ui/InputField";
-import Membership from "../ui/Membership";
+import { BusinessMembership } from "../ui/Membership";
 import { useProfile } from "../../context/ProfileContext";
 
 // Assume these icons are imported from an icon library
@@ -182,7 +182,7 @@ const AppSidebar: React.FC = () => {
             <span className="flex items-center justify-center w-8 h-8 bg-blue-600 text-white rounded">
               <Fingerprint />
             </span>
-            <span className="ml-2 text-xl font-medium text-gray-900 dark:text-white">TailAdmin</span>
+            <span className="ml-2 text-xl font-medium text-gray-900 dark:text-white">Service Finder App</span>
           </Link>
         </div>
 
@@ -205,7 +205,7 @@ const AppSidebar: React.FC = () => {
               </span>
               </div>
               {profile && (
-              <Membership premiumMembership={!!profile.sole_trader} />
+              <BusinessMembership />
               )}
             </div>
           </nav>
