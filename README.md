@@ -16,6 +16,7 @@ Ensure the following are installed:
 
 - [Node.js](https://nodejs.org/) (v16 or later)
 - npm (bundled with Node.js)
+- Docker Desktop
 
 ### Installation
 
@@ -46,8 +47,9 @@ pip install flask flask_restful flask_cors
     ```bash
     cd server
     npm run dev
+    docker compose -f database/docker-compose.yml up -d
     ```
-    Hosted on: `http://localhost:5000`
+    API hosted on: `http://localhost:5000`
 
 ## Scripts
 
@@ -63,6 +65,7 @@ pip install flask flask_restful flask_cors
 - **Tailwind CSS**: For styling.
 - **Python**: For backend development.
 - **Flask**: For RESTful API routes.
+- **Docker**: For postgres database.
 
 ## License
 
