@@ -29,7 +29,7 @@ export const sidebarItems: MenuItem[] = [
         subItems: [
             { name: "Edit Profile", path: "/dashboard/profile", },
             { name: "Settings", path: "/dashboard/settings" },
-            { name: "Log Out", path: "/dashboard/authentication" },
+            { name: "Log Out", path: "/authentication" },
         ],
     }
 ];
@@ -52,7 +52,7 @@ export const profileItems: MenuItem[] = [
     {
         name: "Log Out",
         icon: <GridIcon size={18} />,
-        path: "/dashboard/authentication",
+        path: "/authentication",
     },
 ];
 

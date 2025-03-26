@@ -4,6 +4,8 @@ import Sidebar from "../components/nav/Sidebar";
 import { SidebarProvider, useSidebar } from "../context/SidebarContext";
 import Header from "../components/nav/Header";
 
+/* Dynamic layout that returns sidebar-header content layout if user is a sole trader. */
+
 const DashboardLayoutContent: React.FC = () => {
   const { profile } = useProfile();
   const { isExpanded, isHovered, isMobileOpen } = useSidebar();

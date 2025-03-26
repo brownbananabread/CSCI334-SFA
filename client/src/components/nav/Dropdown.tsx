@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useProfile } from "../../context/ProfileContext";
 import { Menu, X } from "lucide-react";
-import { soleTraderItems, customerItems } from "../../utilities/menuItems";
+import { soleTraderItems, customerItems } from "../common/MenuItems";
 import { CustomerMembership, SoleTraderMembership } from "../ui/Membership";
 
 export default function DashboardDropdown() {
@@ -21,7 +21,6 @@ export default function DashboardDropdown() {
       {isOpen && (
         <div
           className="absolute right-0 flex w-[250px] flex-col rounded-2xl border border-gray-200 bg-white p-3 shadow-theme-lg dark:border-gray-800 dark:bg-gray-dark"
-          onMouseLeave={closeDropdown}
         >
           <ul className="flex flex-col gap-1 dark:border-gray-800">
             <div className="flex items-center justify-between mb-2">

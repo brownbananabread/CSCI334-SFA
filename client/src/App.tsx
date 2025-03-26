@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router";
 import Authentication from "./pages/Authentication";
 import NotFound from "./pages/NotFound";
 import DashboardLayout from "./layout/DashboardLayout";
-import { ScrollToTop } from "./components/common/ScrollToTop";
 import Dashboard from "./pages/Dashboard/Home"; 
 import { AlertProvider } from "./context/AlertContext";
 import Layout from "./layout/Layout";
@@ -13,7 +12,6 @@ export default function App() {
   return (
     <AlertProvider>
       <BrowserRouter>
-        <ScrollToTop />
         <Routes>
           {/* Redirect root path */}
           <Route path="/" element={<Navigate to="/authentication" />} />

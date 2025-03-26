@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router";
 import { Fingerprint } from "lucide-react";
 import Input from "../ui/InputField";
-import { sidebarItems, MenuItem } from "../../utilities/menuItems";
+import { sidebarItems, MenuItem } from "../common/MenuItems"
 import { SoleTraderMembership, CustomerMembership } from "../ui/Membership";
 
 // Assume these icons are imported from an icon library

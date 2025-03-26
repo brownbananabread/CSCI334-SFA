@@ -1,18 +1,22 @@
-interface FetchRequestOptions {
+/**
+ * Utility function to make API requests to the server.
+ *
+ * @param method - HTTP method to use.
+ * @param url - Server endpoint URL.
+ * @param data - Optional body payload for POST, PUT, or PATCH requests.
+ * @param headers - Optional headers to include in the request.
+ * @param params - Optional query parameters for GET requests.
+ *
+ * @returns - Response status and JSON-parsed response body.
+ **/
+
+export const fetchRequest = async ({ method, url, data = {}, headers = {}, params }: {
     method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
     url: string;
     data?: Record<string, unknown>;
     headers?: Record<string, string>;
     params?: Record<string, string>;
-}
-
-export const fetchRequest = async ({
-    method,
-    url,
-    data = {},
-    headers = {},
-    params,
-}: FetchRequestOptions) => {
+}) => {
     try {
         const options: RequestInit = {
             method,
@@ -33,9 +37,9 @@ export const fetchRequest = async ({
         }
 
         const response = await fetch(url, options);
-        const responseData = await response.json();
+        const responseBody = await response.json();
         
-        return responseData;
+        return { status: response.status, body: responseBody };
     } catch (error) {
         console.error(`Error making ${method} request:`, error);
         throw error;

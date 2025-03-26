@@ -1,17 +1,17 @@
 from flask import Flask, request  # Ensure Flask is installed
 from flask_cors import CORS  # Ensure flask-cors is installed
-from routes.user import user_blueprint
-from routes.auth import auth_blueprint
-from routes.profile import profile_blueprint
+# from controllers.user import user_routes
+from controllers.auth import auth_routes
+from controllers.profile import profile_routes
 
 def create_app():
     app = Flask(__name__)
     CORS(app, supports_credentials=True, origins=["http://localhost:5173", "http://localhost:4173"])
 
     # Register Blueprints
-    app.register_blueprint(user_blueprint)
-    app.register_blueprint(auth_blueprint)
-    app.register_blueprint(profile_blueprint)
+    # app.register_blueprint(user_routes)
+    app.register_blueprint(auth_routes)
+    app.register_blueprint(profile_routes)
 
     @app.before_request
     def log_request_info():  # Flask calls this function before each request
@@ -38,7 +38,7 @@ def create_app():
         print(f"    \033[92mBody:\033[0m {response.get_data(as_text=True)}")
         return response
 
-    @app.route('/')
+    @app.route('/api')
     def index():  # This is the root route handler
         return {'message': 'Flask REST API is running'}, 200
     

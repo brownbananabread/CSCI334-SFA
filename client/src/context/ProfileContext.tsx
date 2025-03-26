@@ -1,6 +1,7 @@
 // ProfileContext.tsx
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { useAlert } from './AlertContext';
+import { fetchRequest } from '../utils/fetchRequest';
 
 interface Profile {
   name: string;
@@ -18,12 +19,6 @@ interface ProfileContextType {
 
 const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
 
-const fetchRequest = async ({ method, url }: { method: string; url: string }) => {
-  const response = await fetch(url, { method });
-  if (!response.ok) throw new Error('Failed to fetch profile');
-  return await response.json();
-};
-
 export const ProfileProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const { showAlert } = useAlert();
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -33,11 +28,17 @@ export const ProfileProvider: React.FC<{ children: ReactNode }> = ({ children })
   const getProfile = async () => {
     try {
       setIsLoading(true);
-      const response = await fetchRequest({
+      const { status, body} = await fetchRequest({
         method: 'GET',
         url: 'http://localhost:5174/api/profile',
       });
-      setProfile(response);
+      console.log(status, body);
+
+      if (status !== 200) {
+        throw new Error("Failed to fetch profile.");
+      }
+
+      setProfile(body);
       setError(null);
     } catch (error) {
       console.error("Error fetching profile:", error);

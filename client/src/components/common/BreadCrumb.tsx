@@ -1,11 +1,9 @@
 import { Link } from "react-router";
 import { ChevronRight } from "lucide-react";
 
-interface BreadcrumbProps {
-  pageTitle: string;
-}
+/* Formats the title of the page and directory */
 
-const PageBreadcrumb: React.FC<BreadcrumbProps> = ({ pageTitle }) => {
+const PageBreadcrumb: React.FC<{pageTitle: string}> = ({ pageTitle }) => {
   return (
     <div className="flex flex-wrap items-center justify-between gap-3 mb-6 min-w-3xs">
       <h2

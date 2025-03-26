@@ -1,16 +1,32 @@
-from flask import jsonify
+# from flask import Blueprint, request
+# from models.user import (
+#     get_all_users,
+#     get_user_by_id,
+#     create_user,
+#     update_user,
+#     delete_user
+# )
 
-def get_all_users():
-    return jsonify({'message': 'GET all users request complete'}), 200
+# user_routes = Blueprint('user_routes', __name__, url_prefix='/api/users')
 
-def get_user_by_id(user_id):
-    return jsonify({'message': f'GET user {user_id} request complete'}), 200
+# @user_routes.route('', methods=['GET'])
+# def users():
+#     return get_all_users()
 
-def create_user(data):
-    return jsonify({'message': 'POST create user request complete'}), 201
+# @user_routes.route('/<int:user_id>', methods=['GET'])
+# def user_detail(user_id):
+#     return get_user_by_id(user_id)
 
-def update_user(user_id, data):
-    return jsonify({'message': f'PUT update user {user_id} request complete'}), 200
+# @user_routes.route('', methods=['POST'])
+# def add_user():
+#     data = request.get_json()
+#     return create_user(data)
 
-def delete_user(user_id):
-    return jsonify({'message': f'DELETE user {user_id} request complete'}), 200
+# @user_routes.route('/<int:user_id>', methods=['PUT'])
+# def edit_user(user_id):
+#     data = request.get_json()
+#     return update_user(user_id, data)
+
+# @user_routes.route('/<int:user_id>', methods=['DELETE'])
+# def remove_user(user_id):
+#     return delete_user(user_id)
