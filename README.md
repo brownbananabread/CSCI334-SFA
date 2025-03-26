@@ -19,6 +19,11 @@ Ensure the following are installed:
 
 ### Installation
 
+#### Install Vite
+```bash
+npm install -D vite --legacy-peer-deps
+```
+
 #### Client Setup
 ```bash
 cd client

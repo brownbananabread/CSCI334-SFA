@@ -8,7 +8,7 @@ export const CustomerMembership = () => {
   )
 }
 
-export const BusinessMembership = () => {
+export const SoleTraderMembership = () => {
   return (
     <Badge size="sm" color={"success"} variant="light">
       Business
