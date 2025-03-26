@@ -30,11 +30,19 @@ cd client
 npm install
 ```
 
-#### Server Setup
+#### Server Setup (mac)
 ```bash
 cd server
 python3 -m venv venv
 source venv/bin/activate
+pip install flask flask_restful flask_cors
+```
+
+#### Server Setup (Windows)
+```bash
+cd server
+python -m venv venv
+venv\Scripts\activate
 pip install flask flask_restful flask_cors
 ```
 
@@ -50,14 +58,15 @@ pip install flask flask_restful flask_cors
 2. **Start Backend Server**
     ```bash
     cd server
-    npm run dev
+    source venv/bin/activate (venv\Scripts\activate)
+    python main.py
     ```
-    Hosted on: `http://localhost:5000`
+    Hosted on: `http://localhost:5174`
 
 ## Scripts
 
-- `npm run dev`: Start the development server.
-- `npm run build`: Build the project for production.
+- `npm run dev`: Start the client development server.
+- `npm run build`: Build the react app for production.
 - `npm run preview`: Preview the production build.
 
 ## Technologies Used
