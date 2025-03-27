@@ -2,7 +2,7 @@ import hashlib
 import secrets
 
 class User:
-    VALID_ROLES = {'admin', 'sole_trader', 'customer'}
+    VALID_ROLES = {'admin', 'isBusiness', 'customer'}
 
     def __init__(self, username, password, role):
         if role not in self.VALID_ROLES:
@@ -17,8 +17,8 @@ class User:
         return cls(username, password, 'admin')
     
     @classmethod
-    def create_sole_trader(cls, username, password):
-        instance = cls(username, password, 'sole_trader')
+    def create_isBusiness(cls, username, password):
+        instance = cls(username, password, 'isBusiness')
         instance.ratings = cls.Ratings()  # Instantiate ratings only for sole traders
         return instance
     

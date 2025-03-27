@@ -143,7 +143,7 @@ const AppSidebar: React.FC = () => {
                 </span>
               </div>
               <span className="ml-10">
-                {profile?.sole_trader ? <SoleTraderMembership /> : <CustomerMembership />}
+                {profile?.isBusiness ? <SoleTraderMembership /> : <CustomerMembership />}
               </span>
             </div>
 

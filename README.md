@@ -30,20 +30,10 @@ cd client
 npm install
 ```
 
-#### Server Setup (mac)
+#### Server Setup
 ```bash
 cd server
-python3 -m venv venv
-source venv/bin/activate
-pip install flask flask_restful flask_cors
-```
-
-#### Server Setup (Windows)
-```bash
-cd server
-python -m venv venv
-venv\Scripts\activate
-pip install flask flask_restful flask_cors
+mvn install
 ```
 
 ### Usage
@@ -57,9 +47,7 @@ pip install flask flask_restful flask_cors
 
 2. **Start Backend Server**
     ```bash
-    cd server
-    source venv/bin/activate (venv\Scripts\activate)
-    python main.py
+    mvn spring-boot:run
     ```
     Hosted on: `http://localhost:5174`
 

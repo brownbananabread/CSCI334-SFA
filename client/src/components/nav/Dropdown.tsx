@@ -10,7 +10,7 @@ export default function DashboardDropdown() {
   const toggleDropdown = () => setIsOpen((prev) => !prev);
   const closeDropdown = () => setIsOpen(false);
 
-  const dropdownItems = profile?.sole_trader ? soleTraderItems : customerItems;
+  const dropdownItems = profile?.isBusiness ? soleTraderItems : customerItems;
 
   return (
     <div className="relative block">
@@ -32,7 +32,7 @@ export default function DashboardDropdown() {
                   {profile?.email ? profile.email : "Loading..."}
                 </span>
               </div>
-              {profile?.sole_trader ? <SoleTraderMembership /> : <CustomerMembership />}
+              {profile?.isBusiness ? <SoleTraderMembership /> : <CustomerMembership />}
             </div>
 
             {dropdownItems.map((item, index) =>
