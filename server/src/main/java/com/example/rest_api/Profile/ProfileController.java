@@ -1,12 +1,9 @@
-package com.example.rest_api.controller;
+package com.example.rest_api.Profile;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
-
-import com.example.rest_api.entity.Profile;
-import com.example.rest_api.service.ProfileService;
 
 @RestController
 @RequestMapping("/api")

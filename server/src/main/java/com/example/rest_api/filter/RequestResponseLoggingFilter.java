@@ -28,6 +28,7 @@ public class RequestResponseLoggingFilter implements Filter {
     private static final String GREEN  = "\u001B[32m";
     private static final String WHITE  = "\u001B[37m";
     private static final String BLUE   = "\u001B[34m";
+    private static final String YELLOW = "\u001B[33m";
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -46,7 +47,7 @@ public class RequestResponseLoggingFilter implements Filter {
         } finally {
             long duration = System.currentTimeMillis() - startTime;
             logger.info(RESET);
-            logger.info(GREEN + "PING" + RESET);
+            logger.info(YELLOW + "EVENT" + RESET);
             logger.info(WHITE + "------------------------------------------------------------------------" + RESET);
 
             logRequest(wrappedRequest);
@@ -59,7 +60,7 @@ public class RequestResponseLoggingFilter implements Filter {
     }
 
     private void logRequest(ContentCachingRequestWrapper request) {
-        logger.info(BLUE + "Request" + RESET);
+        logger.info(GREEN + "Request" + RESET);
 
         logLine("- Method        : {}", request.getMethod());
         logLine("- URI           : {}", request.getRequestURI());
@@ -86,7 +87,7 @@ public class RequestResponseLoggingFilter implements Filter {
     }
 
     private void logResponse(ContentCachingResponseWrapper response, long duration) {
-        logger.info(BLUE + "Response" + RESET);
+        logger.info(GREEN + "Response" + RESET);
 
         logLine("- Status        : {}", response.getStatus());
         logLine("- Content-Type  : {}", response.getContentType());
