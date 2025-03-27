@@ -3,5 +3,5 @@ def get_profile():
         'name': 'John Doe',
         'email': 'johndoe@example.com',
         'role': 'admin',
-        'sole_trader': False
+        'sole_trader': True
     }

@@ -28,7 +28,7 @@ const DashboardLayoutContent: React.FC = () => {
         } ${isMobileOpen ? "ml-0" : ""}`}
       >
         <Header/>
-        <div className="px-10 mx-auto w-7/8 mt-10">
+        <div className="px-10 mx-auto w-7/8 mt-20">
           <Outlet />
         </div>
       </div>
@@ -37,7 +37,7 @@ const DashboardLayoutContent: React.FC = () => {
     <div className="min-h-screen xl:flex">
       <div className="flex-1 transition-all duration-300 ease-in-out">
         <Header/>
-        <div className="px-10 mx-auto w-7/8 mt-10">
+        <div className="px-10 mx-auto w-7/8 mt-20">
           <Outlet />
         </div>
       </div>
