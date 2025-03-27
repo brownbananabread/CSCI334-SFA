@@ -1,77 +1,79 @@
-# CSCI334 - Service Finder App
+# Service Finder App
 
-A **Service Finder App** built with **React**, **TypeScript**, and **Vite**, styled using **Tailwind CSS**. The project was initialized with `npm create vite@latest`.
+A modern web application built with React, TypeScript, and Vite, styled with Tailwind CSS.
 
-## Features
+## 🚀 Features
 
-- Modern front-end development with React and TypeScript.
-- Fast build and development environment powered by Vite.
-- Responsive and customizable UI with Tailwind CSS.
+- Modern front-end development with React and TypeScript
+- Fast build and development environment powered by Vite
+- Responsive and customizable UI with Tailwind CSS
+- RESTful API backend with Spring Boot
 
-## Getting Started
+## 🛠️ Tech Stack
 
-### Prerequisites
+- **Frontend**
+  - React
+  - TypeScript
+  - Vite
+  - Tailwind CSS
+- **Backend**
+  - Java
+  - Spring Boot
+  - Maven
 
-Ensure the following are installed:
+## 📋 Prerequisites
 
 - [Node.js](https://nodejs.org/) (v16 or later)
 - npm (bundled with Node.js)
+- Maven (for Java backend)
 
-### Installation
+## 🔧 Installation
 
-#### Install Vite
+### Frontend Setup
 ```bash
+# Install Vite
 npm install -D vite --legacy-peer-deps
-```
 
-#### Client Setup
-```bash
+# Install client dependencies
 cd client
 npm install
 ```
 
-#### Server Setup
+### Backend Setup
 ```bash
+# Install server dependencies
 cd server
 mvn install
 ```
 
-### Usage
+## 🚀 Running the Application
 
-1. **Start Frontend Server**
-    ```bash
-    cd client
-    npm run dev
-    ```
-    Hosted on: `http://localhost:5173`
+### Start Frontend
+```bash
+cd client
+npm run dev
+```
+Frontend will be available at: `http://localhost:5173`
 
-2. **Start Backend Server**
-    ```bash
-    mvn spring-boot:run
-    ```
-    Hosted on: `http://localhost:5174`
+### Start Backend
+```bash
+cd server
+mvn spring-boot:run
+```
+Backend will be available at: `http://localhost:5174`
 
-## Scripts
+## 📜 Available Scripts
 
-- `npm run dev`: Start the client development server.
-- `npm run build`: Build the react app for production.
-- `npm run preview`: Preview the production build.
+- `npm run dev` - Start the client development server
+- `npm run build` - Build the React app for production
+- `npm run preview` - Preview the production build
 
-## Technologies Used
-
-- **React**: For building the user interface.
-- **TypeScript**: For type-safe JavaScript development.
-- **Vite**: For fast builds and hot module replacement.
-- **Tailwind CSS**: For styling.
-- **Python**: For backend development.
-- **Flask**: For RESTful API routes.
-
-## License
-
-Licensed under the [MIT License](LICENSE).
-
-## Acknowledgments
+## 📚 Documentation
 
 - [Vite Documentation](https://vitejs.dev/)
 - [React Documentation](https://reactjs.org/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/)
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
