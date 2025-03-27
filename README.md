@@ -33,9 +33,7 @@ npm install
 #### Server Setup
 ```bash
 cd server
-python3 -m venv venv
-source venv/bin/activate
-pip install flask flask_restful flask_cors
+mvn install
 ```
 
 ### Usage
@@ -49,15 +47,14 @@ pip install flask flask_restful flask_cors
 
 2. **Start Backend Server**
     ```bash
-    cd server
-    npm run dev
+    mvn spring-boot:run
     ```
-    Hosted on: `http://localhost:5000`
+    Hosted on: `http://localhost:5174`
 
 ## Scripts
 
-- `npm run dev`: Start the development server.
-- `npm run build`: Build the project for production.
+- `npm run dev`: Start the client development server.
+- `npm run build`: Build the react app for production.
 - `npm run preview`: Preview the production build.
 
 ## Technologies Used

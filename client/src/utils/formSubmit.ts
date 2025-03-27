@@ -9,12 +9,11 @@ import { fetchRequest } from './fetchRequest';
  **/
 
 export const handleLandingFormSubmit = async (email: string) => {
-    const { status, body } = await fetchRequest({
+    const { status } = await fetchRequest({
       method: 'POST',
       url: 'http://localhost:5174/api/validate',
       data: { email },
     });
-    console.log(body);
     return status === 200;
 };
 
@@ -28,12 +27,11 @@ export const handleLandingFormSubmit = async (email: string) => {
  **/
 
 export const handleLoginFormSubmit = async (email: string, password: string) => {
-  const { status, body } = await fetchRequest({
+  const { status } = await fetchRequest({
     method: 'POST',
     url: 'http://localhost:5174/api/login',
     data: { email, password },
   });
-  console.log(body);
   return status === 200;
 };
 
@@ -56,11 +54,10 @@ export const handleRegisterFormSubmit = async (
   password: string,
   isBusinessAccount: boolean
 ) => {
-  const { status, body } = await fetchRequest({
+  const { status } = await fetchRequest({
     method: 'POST',
     url: 'http://localhost:5174/api/register',
     data: { firstName, lastName, email, password, isBusinessAccount },
   });
-  console.log(body);
   return status === 200;
 };

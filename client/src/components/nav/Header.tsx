@@ -8,7 +8,7 @@ const DashboardHeader: React.FC = () => { // Fixed `False` to `false`
   const { profile } = useProfile(); // Renamed variable to avoid shadowing
 
   return (
-    <header className={`${profile?.sole_trader ? "lg:hidden" : ""} sticky px-5 top-0 flex h-20 w-full border-b bg-white border-gray-200 z-[99998] dark:border-gray-800 dark:bg-gray-900`}>
+    <header className={`${profile?.isBusiness ? "lg:hidden" : ""} sticky px-5 top-0 flex h-20 w-full border-b bg-white border-gray-200 z-[99998] dark:border-gray-800 dark:bg-gray-900`}>
       <div className="flex items-center justify-between w-full">
       {/* Mobile Branding */}
       <div className="flex-1 flex justify-start">

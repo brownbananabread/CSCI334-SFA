@@ -36,10 +36,12 @@ export const fetchRequest = async ({ method, url, data = {}, headers = {}, param
             options.body = JSON.stringify(data);
         }
 
-        const response = await fetch(url, options);
-        const responseBody = await response.json();
+        const rawResponse = await fetch(url, options);
+
+        const responseStatus = rawResponse.status;
+        const responseBody = await rawResponse.json();
         
-        return { status: response.status, body: responseBody };
+        return { status: responseStatus, body: responseBody };
     } catch (error) {
         console.error(`Error making ${method} request:`, error);
         throw error;

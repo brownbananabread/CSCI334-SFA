@@ -29,6 +29,7 @@ export const sidebarItems: MenuItem[] = [
         subItems: [
             { name: "Edit Profile", path: "/dashboard/profile", },
             { name: "Settings", path: "/dashboard/settings" },
+            { name: "Recent Activity", path: "/dashboard/activity" },
             { name: "Log Out", path: "/authentication" },
         ],
     }

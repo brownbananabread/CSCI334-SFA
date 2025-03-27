@@ -7,6 +7,7 @@ import { AlertProvider } from "./context/AlertContext";
 import Layout from "./layout/Layout";
 import Profile from "./pages/Dashboard/Profile";
 import Settings from "./pages/Dashboard/Settings";
+import Activity from "./pages/Dashboard/Activity";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/profile" element={<Profile />} />
             <Route path="/dashboard/settings" element={<Settings />} />
+            <Route path="/dashboard/activity" element={<Activity />} />
           </Route>
 
           <Route element={<Layout />}>

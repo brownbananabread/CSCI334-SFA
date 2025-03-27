@@ -7,7 +7,7 @@ interface Profile {
   name: string;
   email: string;
   role: string;
-  sole_trader: boolean;
+  isBusiness: boolean;
 }
 
 interface ProfileContextType {
@@ -28,11 +28,10 @@ export const ProfileProvider: React.FC<{ children: ReactNode }> = ({ children })
   const getProfile = async () => {
     try {
       setIsLoading(true);
-      const { status, body} = await fetchRequest({
+      const { status, body } = await fetchRequest({
         method: 'GET',
         url: 'http://localhost:5174/api/profile',
       });
-      console.log(status, body);
 
       if (status !== 200) {
         throw new Error("Failed to fetch profile.");
