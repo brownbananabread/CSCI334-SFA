@@ -9,9 +9,15 @@ public class AuthService {
 
     public Profile login(String email, String password) {
         if (email.equals("johndoe@gmail.com") && password.equals("password")) {
-            return new Profile("johndoe@gmail.com", "John", "Doe", "password", false);
+            return new Profile(email, "John", "Doe", "password", false);
         }
+        return null;
+    }
 
+    public Profile validate(String email) {
+        if (email.equals("johndoe@gmail.com")) {
+            return new Profile(email, "John", "Doe", "password", false);
+        }
         return null;
     }
 

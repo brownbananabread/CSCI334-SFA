@@ -34,6 +34,23 @@ public class AuthController {
         return ResponseEntity.ok(profile.getAll());
     }
 
+    @PostMapping("/validate")
+    public ResponseEntity<?> validate(@RequestBody Map<String, String> credentials) {
+        String email = credentials.get("email");
+
+        if (email == null) {
+            return ResponseEntity.status(400).body(Map.of("message", "Email is required"));
+        }
+
+        Profile profile = authService.validate(email);
+
+        if (profile == null) {
+            return ResponseEntity.status(401).body(Map.of("message", "Invalid email"));
+        }
+
+        return ResponseEntity.ok(Map.of("message", "Email is valid"));
+    }
+
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody Map<String, String> credentials) {
         String firstName = credentials.get("firstName");

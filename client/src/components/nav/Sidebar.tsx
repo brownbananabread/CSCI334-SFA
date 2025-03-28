@@ -22,6 +22,9 @@ const AppSidebar: React.FC = () => {
 
   const isActive = useCallback((path: string) => location.pathname === path, [location.pathname]);
 
+  const profileName = profile?.firstName && profile?.lastName ? `${profile.firstName} ${profile.lastName}` : "Loading...";
+  const profileEmail = profile?.email ? profile.email : "Loading...";
+
   useEffect(() => {
     const updatedSubmenus: Record<number, boolean> = {};
     sidebarItems.forEach((nav, index) => {
@@ -136,14 +139,14 @@ const AppSidebar: React.FC = () => {
             <div className="flex items-center justify-between mb-5 absolute bottom-0">
               <div>
                 <span className="ml-2 block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
-                  {profile?.name ? profile.name : "Loading..."}
+                  {profileName}
                 </span>
                 <span className="ml-2 mt-0.5 block text-theme-xs text-gray-500 dark:text-gray-400">
-                  {profile?.email ? profile.email : "Loading..."}
+                  {profileEmail}
                 </span>
               </div>
               <span className="ml-10">
-                {profile?.isBusiness ? <SoleTraderMembership /> : <CustomerMembership />}
+                {profile?.isBusinessAccount ? <SoleTraderMembership /> : <CustomerMembership />}
               </span>
             </div>
 

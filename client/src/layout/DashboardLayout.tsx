@@ -19,7 +19,7 @@ const DashboardLayoutContent: React.FC = () => {
     return <Navigate to="/authentication" replace />;
   }
 
-  return profile?.isBusiness ? (
+  return profile?.isBusinessAccount ? (
     <div className="min-h-screen xl:flex">
       <Sidebar />
       <div

@@ -10,7 +10,9 @@ export default function DashboardDropdown() {
   const toggleDropdown = () => setIsOpen((prev) => !prev);
   const closeDropdown = () => setIsOpen(false);
 
-  const dropdownItems = profile?.isBusiness ? soleTraderItems : customerItems;
+  const dropdownItems = profile?.isBusinessAccount ? soleTraderItems : customerItems;
+  const profileName = profile?.firstName && profile?.lastName ? `${profile.firstName} ${profile.lastName}` : "Loading...";
+  const profileEmail = profile?.email ? profile.email : "Loading...";
 
   return (
     <div className="relative block">
@@ -26,13 +28,13 @@ export default function DashboardDropdown() {
             <div className="flex items-center justify-between mb-2">
               <div>
                 <span className="ml-2 block font-medium text-gray-700 text-theme-sm dark:text-gray-400">
-                  {profile?.name ? profile.name : "Loading..."}
+                  {profileName}
                 </span>
                 <span className="ml-2 mt-0.5 block text-theme-xs text-gray-500 dark:text-gray-400">
-                  {profile?.email ? profile.email : "Loading..."}
+                  {profileEmail}
                 </span>
               </div>
-              {profile?.isBusiness ? <SoleTraderMembership /> : <CustomerMembership />}
+              {profile?.isBusinessAccount ? <SoleTraderMembership /> : <CustomerMembership />}
             </div>
 
             {dropdownItems.map((item, index) =>

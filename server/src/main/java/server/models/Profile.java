@@ -8,17 +8,17 @@ public class Profile {
 
     @Id
     private String email;
-    private String firstname;
-    private String lastname;
+    private String firstName;
+    private String lastName;
     private String password;
     private boolean isBusinessAccount;
 
     public Profile() {}
 
-    public Profile(String email, String firstname, String lastname, String password, boolean isBusinessAccount) {
+    public Profile(String email, String firstName, String lastName, String password, boolean isBusinessAccount) {
         this.email = email;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.password = password;
         this.isBusinessAccount = isBusinessAccount;
     }
@@ -27,12 +27,12 @@ public class Profile {
         return email;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
     public String getPassword() {
@@ -47,12 +47,12 @@ public class Profile {
         this.email = email;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public void setPassword(String password) {
@@ -66,8 +66,8 @@ public class Profile {
     public Map<String, Object> getAll() {
         return Map.of(
             "email", email,
-            "firstname", firstname,
-            "lastname", lastname,
+            "firstName", firstName,
+            "lastName", lastName,
             "isBusinessAccount", isBusinessAccount
         );
     }

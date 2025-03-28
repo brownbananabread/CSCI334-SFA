@@ -4,10 +4,10 @@ import { useAlert } from './AlertContext';
 import { fetchRequest } from '../utils/fetchRequest';
 
 interface Profile {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
-  role: string;
-  isBusiness: boolean;
+  isBusinessAccount: boolean;
 }
 
 interface ProfileContextType {
