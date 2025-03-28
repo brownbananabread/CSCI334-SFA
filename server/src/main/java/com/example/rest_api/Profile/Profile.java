@@ -1,9 +1,8 @@
 package com.example.rest_api.Profile;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-
+import java.util.Map;
 @Entity
 public class Profile {
 
@@ -11,7 +10,6 @@ public class Profile {
     private String name;
     private String email;
 
-    @JsonProperty("business")
     private boolean isBusiness;
 
     public Profile() {}
@@ -44,5 +42,13 @@ public class Profile {
 
     public void setBusiness(boolean isBusiness) {
         this.isBusiness = isBusiness;
+    }
+
+    public Map<String, Object> getAll() {
+        return Map.of(
+            "name", name,
+            "email", email,
+            "isBusiness", isBusiness
+        );
     }
 }

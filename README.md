@@ -8,6 +8,7 @@ A modern web application built with React, TypeScript, and Vite, styled with Tai
 - Fast build and development environment powered by Vite
 - Responsive and customizable UI with Tailwind CSS
 - RESTful API backend with Spring Boot
+- Database integration with JDBC
 
 ## 🛠️ Tech Stack
 
@@ -20,12 +21,16 @@ A modern web application built with React, TypeScript, and Vite, styled with Tai
   - Java
   - Spring Boot
   - Maven
+  - JDBC Template
+- **Database**
+  - PostgreSQL
 
 ## 📋 Prerequisites
 
 - [Node.js](https://nodejs.org/) (v16 or later)
 - npm (bundled with Node.js)
 - Maven (for Java backend)
+- PostgreSQL
 
 ## 🔧 Installation
 
@@ -45,6 +50,11 @@ npm install
 cd server
 mvn install
 ```
+
+### Database Setup
+1. Install PostgreSQL
+2. Create a database named `service_finder`
+3. Update `application.properties` with your database credentials
 
 ## 🚀 Running the Application
 
@@ -73,6 +83,8 @@ Backend will be available at: `http://localhost:5174`
 - [Vite Documentation](https://vitejs.dev/)
 - [React Documentation](https://reactjs.org/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/)
+- [Spring Boot Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/)
+- [PostgreSQL Documentation](https://www.postgresql.org/docs/)
 
 ## 📄 License
 
