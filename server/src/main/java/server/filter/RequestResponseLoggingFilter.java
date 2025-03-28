@@ -1,4 +1,4 @@
-package com.example.rest_api.filter;
+package server.filter;
 
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
